@@ -1,11 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Réservation • Un Instant Photo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    form label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    form input, form select, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    form button {
+      margin-top: 20px;
+      background: #007BFF;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+    }
+    form button:hover {
+      background: #0056b3;
+    }
+  </style>
 </head>
 <body>
-    <h1>mon site</h1>
+  <div class="container">
+    <h1>Réservez votre séance photo</h1>
+    <form action="/submit_reservation" method="post">
+      <label for="name">Nom complet *</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email *</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Téléphone</label>
+      <input type="tel" id="phone" name="phone">
+
+      <label for="date">Date souhaitée *</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="time">Heure souhaitée</label>
+      <input type="time" id="time" name="time">
+
+      <label for="package">Type de prestation *</label>
+      <select id="package" name="package" required>
+        <option value="">-- Sélectionnez --</option>
+        <option value="mini">Mini séance (85 €)</option>
+        <option value="famille">Séance famille (165 €)</option>
+        <option value="mariage">Séance mariage (sur devis)</option>
+      </select>
+
+      <label for="message">Message / Détails supplémentaires</label>
+      <textarea id="message" name="message" rows="4"
+        placeholder="Décrivez votre événement, vos attentes..."></textarea>
+
+      <button type="submit">Envoyer la demande</button>
+    </form>
+  </div>
 </body>
 </html>
