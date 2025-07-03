@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Tarifs – C&B Photographie</title>
+  <link rel="stylesheet" href="style.css">
+   <style>
+    body {
+      background-color: #fffafc;
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+      margin: 0;
+    }
+
+    header {
+      background-color: #e0c295;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #6b4b1c;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #6b4b1c;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #6b4b1c;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2em;
+      color: #6b4b1c;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px 100px;
+    }
+
+    .formules {
+      margin-bottom: 50px;
+    }
+
+    .formules h2 {
+      color: #6b4b1c;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .formule {
+      background: #e0c295;
+      border-left: 5px solid #6b4b1c;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(204, 51, 102, 0.05);
+    }
+
+    .formule h3 {
+      margin: 0 0 10px;
+      color: #6b4b1c;
+    }
+
+    .simulateur {
+      max-width: 600px;
+      margin: auto;
+      padding: 30px;
+      background: #e0c295;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(204, 51, 102, 0.1);
+    }
+
+    .simulateur label {
+      display: block;
+      margin-top: 15px;
+      color: #6b4b1c;
+      font-weight: bold;
+    }
+
+    .simulateur input, .simulateur select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #e0c295;
+      border-radius: 8px;
+      background-color: #ffffff;
+    }
+
+    .total-estime {
+      margin-top: 30px;
+      font-size: 1.4em;
+      color: #2ea710;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .simulateur h2 {
+      text-align: center;
+      color: #6b4b1c;
+      margin-bottom: 10px;
+    }
+
+    .simulateur p.info {
+      text-align: center;
+      font-style: italic;
+      color: #ca0000;
+    }
+
+    footer {
+      background-color: #e0c295;
+      text-align: center;
+      padding: 15px 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 0.9em;
+      color: #555;
+      border-top: 1px solid #6b4b1c;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>C&B Photographie</h1>
+  <nav>
+    <ul>
+      <li><a href="accueil.html">Accueil</a></li>
+      <li><a href="photo.html">Photos</a></li>
+      <li><a href="tarif.html">Tarifs</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="mailto:contact@C&Bphotographie.fr">Contactez-moi</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section>
+    <h2>Mes formules mariage</h2>
+    <div class="pricing">
+      <div class="price-card">
+        <h3>Formule Essentiel</h3>
+        <p>📷 Mairie + Eglise</p>
+        <p>📷 Photos des mariés</p>
+        <p>📷 1h de vin d'honneur</p>
+        <p>📷 Photos remises sur clé USB</p>
+        <p class ="price2" >à partir de </p>
+        <p class="price">350€</p>
+      </div>
+      <div class="price-card">
+        <h3>Formule Prestige</h3>
+        <p>📷 Préparation de la mariée</p>
+        <p>📷 Mairie + Eglise</p>
+        <p>📷 Photos des mariés</p>
+        <p>📷 Vin d'honneur</p>
+        <p>📷 Photos remises sur clé USB</p>
+        <p class ="price2" >à partir de </p>
+        <p class="price">550€</p>
+      </div>
+      <div class="price-card">
+        <h3>Formule Prestige</h3>
+        <p>📷 Préparation de la mariée</p>
+        <p>📷 Mairie + Eglise</p>
+        <p>📷 Photos des mariés</p>
+        <p>📷 Vin d'honneur</p>
+        <p>📷 Gâteau</p>
+        <p>📷 Photos remises sur clé USB</p>
+        <p class ="price2" >à partir de </p>
+        <p class="price">800€</p>
+      </div>
+      <!-- <div class="price-card">
+        <h3>Formule 4</h3>
+        <p>📷 2 photographes</p>
+        <p>💾 Galerie en ligne</p>
+        <p>📀 Album photo inclus</p>
+        <p>🕒 10h de présence</p>
+        <p>🕒 Déplacement sur 100Km inclus</p>
+        <p>📷 Préparatifs → Soirée</p>
+        <p>📸 Séance engagement</p>
+        <p>🖼️ Tirages + Galerie + Album luxe</p>
+        <p class ="price2" >à partir de </p>
+        <p class="price">1550€</p>
+      </div> -->
+    </div>
+  </section>
+
+  <section class="simulateur">
+    <h2>Estimez votre tarif personnalisé</h2>
+    <p class="info">Ce devis est indicatif et non officiel !</p>
+
+    <label for="heures">Nombre d'heures souhaitées :</label>
+    <input type="number" id="heures" min="1" max="15" value="4">
+
+    <label for="album">Souhaitez-vous un album photo ?</label>
+    <select id="album">
+      <option value="0">Non</option>
+      <option value="150">Oui (+150€)</option>
+    </select>
+
+    <label for="deplacement">Frais de déplacement :</label>
+    <select id="deplacement">
+      <option value="0">Pas de frais</option>
+      <option value="50">Zone locale (+50€)</option>
+      <option value="100">Zone étendue (+100€)</option>
+    </select>
+
+    <!-- <label for="photographe2">Souhaitez-vous un 2e photographe ?</label>
+    <select id="photographe2">
+      <option value="0">Non</option>
+      <option value="300">Oui (+300€)</option>
+    </select> -->
+
+    <div class="total-estime">
+     <p> Estimation :</p> <span id="total">0</span> €
+    </div><br>
+  </section>
+</main>
+
+<footer>
+  © 2025 C&B Photographie – Tous droits réservés
+</footer>
+
+<script>
+  const heures = document.getElementById("heures");
+  const album = document.getElementById("album");
+  const deplacement = document.getElementById("deplacement");
+  // const photographe2 = document.getElementById("photographe2");
+  const total = document.getElementById("total");
+
+  function calculerTotal() {
+    const tarifHoraire = 100;
+    const h = parseInt(heures.value || 0);
+    const a = parseInt(album.value || 0);
+    const d = parseInt(deplacement.value || 0);
+    // const p2 = parseInt(photographe2.value || 0);
+    const totalPrix = (h * tarifHoraire) + a + d 
+    // + p2
+    ;
+    total.textContent = totalPrix;
+  }
+
+  [heures, album, deplacement
+  // , photographe2
+].forEach(el => {
+    el.addEventListener("input", calculerTotal);
+  });
+
+  calculerTotal();
+</script>
+  <script src="script.js"></script>
+
+</body>
+</html>
