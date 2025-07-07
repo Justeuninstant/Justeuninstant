@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 
+    - primary meta tags
+  -->
+  <title>C&B Photographie</title>
+  <meta name="title" content="C&B Photographie">
+  <meta name="description" content="">
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - custom font link
+  -->
+  <link rel="stylesheet" href="./assets/font/font.css">
+
+  <!-- 
+    - preload images
+  -->
+  <link rel="preload" as="image" href="./assets/images/loading.svg">
+  <link rel="preload" as="image" href="./assets/images/loading-circle.svg">
+
+</head>
+
+<body class="active" id="top">
+
+  <!-- 
+    -#PRELOADING
+  -->
+
+  <div class="loading" data-loading>
+    <img src="./assets/images/loading.svg" width="55" height="55" alt="loading" class="img">
+    <img src="./assets/images/loading-circle.svg" width="70" height="70" alt="" class="circle">
+  </div>
+
+
+
+
+
+  <main>
+    <article>
+      <!-----------------------------------------------------------------------------------------------------------------------------------
+                                                          - #ACCUEIL
+      ------------------------------------------------------------------------------------------------------------------------------------>
+      <section class="section hero" id="home" aria-label="home">
+        <div class="container">
+          <img src="./assets/images/C_B_Photographie_transparent.png" width="560" height="366" alt="" class="hero-banner">
+          <div class="hero-content">
+          <h1 class="h1 hero-title">C&B Photographie </h1>
+        </div>
+        <img src="./assets/images/hero-shape.svg" width="211" height="189" alt="" class="shape">
+      </section>
+
+
+
+  <style>
+    :root {
+      --primary-color: #111;
+      --secondary-color: #00000052;
+      --text-color: #fff;
+      --card-radius: 12px;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('assets/images/footer-bg.jpg') center/cover no-repeat;
+      color: var(--text-color);
+    }
+    header {
+      background: url('assets/images/banner-photo.jpg') center/cover no-repeat;
+      color: white;
+      padding: 5em 1em;
+      text-align: center;
+    }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .card {
+      border-radius: var(--card-radius);
+      padding: 24px;
+      background-color: var(--secondary-color);
+      box-shadow: 0 4px 10px rgba(255,255,255,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(255,255,255,0.1);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #fff;
+    }
+    .card p {
+      margin: 0.5em 0;
+    }
+    .btn-container {
+      text-align: center;
+      margin: 2em 0;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.75em 1.5em;
+      background-color: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      margin: 0.5em;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #444;
+    }
+    footer {
+      text-align: center;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1em;
+      margin-top: 40px;
+    }
+    @media (max-width: 600px) {
+      header {
+        padding: 3em 1em;
+      }
+      .card {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Offres & Tarifs</h1>
+    <p>Choisissez la formule qui vous correspond</p>
+  </header>
+
+  <div class="container">
+    <div class="btn-container">
+      <a href="index.html" class="btn">Retour à l'accueil</a>
+      <a href="reservation.html" class="btn">Réserver une séance</a>
+    </div>
+
+    <h2>Séances Photos</h2>
+    <div class="offer-grid">
+      <div class="card">
+        <h3>Famille</h3>
+        <p><strong>Durée :</strong> 1h</p>
+        <p><strong>Photos :</strong> 20 photos HD retouchées</p>
+        <p><strong>Tarif :</strong> 150€</p>
+        <img src="assets/images/famille.jpg" alt="Séance photo famille" style="width: 100%; border-radius: 8px; margin-top: 1em;" />
+      </div>
+
+      <div class="card">
+        <h3>Bébé</h3>
+        <p><strong>Durée :</strong> 1h30</p>
+        <p><strong>Photos :</strong> 25 photos HD retouchées</p>
+        <p><strong>Tarif :</strong> 180€</p>
+        <img src="assets/images/bebe.jpg" alt="Séance photo bébé" style="width: 100%; border-radius: 8px; margin-top: 1em;" />
+      </div>
+
+      <div class="card">
+        <h3>Grossesse</h3>
+        <p><strong>Durée :</strong> 1h</p>
+        <p><strong>Photos :</strong> 20 photos HD retouchées</p>
+        <p><strong>Tarif :</strong> 160€</p>
+        <img src="assets/images/grossesse.jpg" alt="Séance grossesse" style="width: 100%; border-radius: 8px; margin-top: 1em;" />
+      </div>
+
+      <div class="card">
+        <h3>Autre</h3>
+        <p><strong>Durée :</strong> 45 min</p>
+        <p><strong>Photos :</strong> 15 photos HD</p>
+        <p><strong>Tarif :</strong> 130€</p>
+        <img src="assets/images/autre.jpg" alt="Autre séance photo" style="width: 100%; border-radius: 8px; margin-top: 1em;" />
+      </div>
+    </div>
+
+    <h2 style="margin-top: 60px;">Formules Mariage</h2>
+    <div class="offer-grid">
+      <div class="card">
+        <h3>Essentiel</h3>
+        <p><strong>Couverture :</strong> Préparatifs à vin d'honneur (6h)</p>
+        <p><strong>Inclus :</strong> Galerie web + 200 photos HD</p>
+        <p><strong>Tarif :</strong> 890€</p>
+        <img src="assets/images/mariage-essentiel.jpg" alt="Formule mariage essentiel" style="width: 100%; border-radius: 8px; margin-top: 1em;" />
+      </div>
+
+      <div class="card">
+        <h3>Prestige</h3>
+        <p><strong>Couverture :</strong> Journée complète (10h)</p>
+        <p><strong>Inclus :</strong> Galerie + clé USB + 300 photos</p>
+        <p><strong>Tarif :</strong> 1290€</p>
+        <img src="assets/images/mariage-prestige.jpg" alt="Formule mariage prestige" style="width: 100%; border-radius: 8px; margin-top: 1em;" />
+      </div>
+
+      <div class="card">
+        <h3>Féerie</h3>
+        <p><strong>Couverture :</strong> Des préparatifs à la soirée (12h)</p>
+        <p><strong>Inclus :</strong> Galerie, album 30x30, 400 photos HD</p>
+        <p><strong>Tarif :</strong> 1650€</p>
+        <img src="assets/images/mariage-feerie.jpg" alt="Formule mariage féerie" style="width: 100%; border-radius: 8px; margin-top: 1em;" />
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 C&B Photographie - Tous droits réservés</p>
+  </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-----------------------------------------------------------------------------------------------------------------------------------
+                                                        - #Fin de pages
+    ------------------------------------------------------------------------------------------------------------------------------------>
+  <footer class="footer">
+    <!-- Section de retour à l'accueil -->
+    <div class="footer-top section" id="contact">
+      <div class="container">
+        <p class="section-subtitle" data-reveal>Retour à l'accueil</p>
+        <a href="index.html" class="btn-icon" data-reveal aria-label="Retour à l'accueil">
+          <img src="./assets/images/arrow-forward.svg" width="43" height="20" loading="lazy" alt="Flèche retour">
+        </a>
+      </div>
+    </div>
+
+    <!-- Section bas de page -->
+    <div class="footer-bottom">
+      <div class="container">
+        <a href="index.html" class="logo" aria-label="C&B Photographie - Accueil">
+          <!-- Tu peux ajouter ici un logo si tu le souhaites -->
+          <!-- <img src="./assets/images/logo.png" alt="C&B Photographie" width="120"> -->
+        </a>
+        <p class="copyright">Juste un instant — Tous droits réservés © 2025</p>
+      </div>
+    </div>
+
+    <!-- Image de fond -->
+    <div class="footer-bg has-before">
+      <img src="./assets/images/footer-bg.jpg" width="1920" height="1135" loading="lazy" alt="Fond - photographie" class="img-cover">
+    </div>
+  </footer>
+
+
+  <!-- - #BACK TO TOP -->
+    <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>0%</a>
+  <!--#CUSTOM CURSOR -->
+    <div class="cursor" data-cursor></div>
+  <!--custom js link -->
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
+
+<!--Ajout des logo font-awesome-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+

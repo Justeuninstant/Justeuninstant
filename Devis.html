@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Facture personnalisable</title>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; color: #333; }
+    input, textarea { width: 100%; padding: 5px; margin-top: 4px; margin-bottom: 12px; }
+    label { font-weight: bold; display: block; margin-top: 12px; }
+    .btn { padding: 10px 20px; background: #007BFF; color: white; border: none; cursor: pointer; }
+    .container { max-width: 700px; margin: auto; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2>Édition de Facture – Juste un instant</h2>
+  <form id="invoice-form">
+    <label>Nom du client</label>
+    <input type="text" name="client_name" required>
+
+    <label>Email du client</label>
+    <input type="email" name="to_email" required>
+
+    <label>Date de la séance</label>
+    <input type="date" name="session_date" required>
+
+    <label>Description de la prestation</label>
+    <textarea name="description" rows="2" placeholder="ex: Séance photo studio (2 adultes + 2 enfants)"></textarea>
+
+    <label>Montant (TTC)</label>
+    <input type="number" name="amount" step="0.01" placeholder="ex: 126.50" required>
+
+    <label>Remarques (optionnel)</label>
+    <textarea name="notes" rows="2"></textarea>
+
+    <button type="submit" class="btn">📧 Envoyer la facture</button>
+  </form>
+
+  <p id="result" style="margin-top:20px; font-weight:bold;"></p>
+</div>
+
+<script>
+  emailjs.init("8pjN1c5aaMsy1xxxxxxx"); // Facultatif pour EmailJS v2. Remplacé par public key dans v3.
+
+  document.getElementById("invoice-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+
+    const templateParams = {
+      client_name: form.client_name.value,
+      to_email: form.to_email.value,
+      session_date: form.session_date.value,
+      description: form.description.value,
+      amount: form.amount.value + " €",
+      notes: form.notes.value || "(Aucune remarque)"
+    };
+
+    emailjs.send("service_8kv97m3", "template_hppxneu", templateParams)
+      .then(() => {
+        document.getElementById("result").textContent = "✅ Facture envoyée à " + templateParams.to_email;
+        form.reset();
+      })
+      .catch((error) => {
+        document.getElementById("result").textContent = "❌ Erreur : " + JSON.stringify(error);
+      });
+
+    // Optionnel : garder une copie dans Google Sheet
+    fetch('https://script.google.com/macros/s/AKfycbxWe8ODJR6wEvIFt-fovCEH6L90Hfl1E_0MPOg0pc0tf6tcSTs6atozdOvCZwAyA6eP/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(templateParams)
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Facture EmailJS V3</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .container { max-width: 800px; margin: auto; }
+    label { font-weight: bold; margin-top: 10px; display: block; }
+    input, textarea { width: 100%; margin-bottom: 15px; padding: 8px; }
+    .btn { padding: 10px 20px; background: #007BFF; color: #fff; border: none; cursor: pointer; margin-right: 10px; }
+    #invoice-preview { padding: 20px; border: 1px solid #ccc; margin-top: 20px; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2>Émission d'une facture</h2>
+  <form id="invoice-form">
+    <label>Nom du client</label>
+    <input type="text" id="client_name" required>
+
+    <label>Email du client</label>
+    <input type="email" id="to_email" required>
+
+    <label>Date de la séance</label>
+    <input type="date" id="session_date" required>
+
+    <label>Description</label>
+    <textarea id="description" required>Séance photo studio (2 adultes + 2 enfants)</textarea>
+
+    <label>Montant TTC (€)</label>
+    <input type="number" id="amount" step="0.01" value="126.5" required>
+
+    <label>Remarques (optionnel)</label>
+    <textarea id="notes">TVA non applicable – art. 259-1 du CGI</textarea>
+
+    <button type="submit" class="btn">📧 Envoyer par Email</button>
+    <button type="button" class="btn" onclick="generatePDF()">⬇️ Télécharger PDF</button>
+  </form>
+
+  <div id="result"></div>
+
+  <div id="invoice-preview" style="display:none;"></div>
+</div>
+
+<script type="module">
+  import emailjs from 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+  emailjs.init('QnbZP_AbkK08qd6pi'); // Remplacez par votre vrai Public Key
+
+  window.emailjs = emailjs;
+
+  document.getElementById("invoice-form").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const client_name = document.getElementById("client_name").value;
+    const to_email = document.getElementById("to_email").value;
+    const session_date = document.getElementById("session_date").value;
+    const description = document.getElementById("description").value;
+    const amount = document.getElementById("amount").value + " €";
+    const notes = document.getElementById("notes").value;
+
+    const html = `
+      <div style='font-family:Arial,sans-serif;'>
+      <h2 style='color:#007BFF;'>Facture – Juste un instant</h2>
+      <p><strong>Client :</strong> ${client_name}<br>
+         <strong>Date :</strong> ${session_date}<br>
+         <strong>Description :</strong> ${description}</p>
+      <p><strong>Montant TTC :</strong> ${amount}</p>
+      <p><strong>Remarques :</strong> ${notes}</p>
+      </div>
+    `;
+
+    const preview = document.getElementById("invoice-preview");
+    preview.innerHTML = html;
+    preview.style.display = "block";
+
+    emailjs.send("service_8kv97m3", "template_hppxneu", {
+      client_name,
+      to_email,
+      session_date,
+      description,
+      amount,
+      notes,
+      invoice_html: html
+    })
+    .then(() => {
+      document.getElementById("result").textContent = "✅ Facture envoyée à " + to_email;
+    })
+    .catch((error) => {
+      document.getElementById("result").textContent = "❌ Erreur EmailJS : " + JSON.stringify(error);
+    });
+
+    fetch("https://script.google.com/macros/library/d/1T1yB3u3mjd7yZdMRKNoO57WSBEXCz0JclISLq7Tl8SpMJAZXWk5zlqwO/2", {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ client_name, to_email, session_date, description, amount, notes })
+    });
+  });
+
+  window.generatePDF = function() {
+    const preview = document.getElementById("invoice-preview");
+    if (preview.innerHTML.trim() === "") {
+      alert("Veuillez remplir et soumettre le formulaire pour générer un PDF.");
+      return;
+    }
+    html2pdf().from(preview).set({ filename: "facture_juste_un_instant.pdf" }).save();
+  }
+</script>
+</body>
+</html>
